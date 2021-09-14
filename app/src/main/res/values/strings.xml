@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">w06-Multiples</string>
+    <string name="textView1">0</string>
+    <string name="textView2">0</string>
+    <string name="textView3">0</string>
+    <string name="btnCalc">Multiply</string>
 </resources>
