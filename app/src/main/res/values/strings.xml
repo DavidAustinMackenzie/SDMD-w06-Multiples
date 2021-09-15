@@ -5,4 +5,5 @@
     <string name="textView3">0</string>
     <string name="textView4">X</string>
     <string name="btnCalc">Multiply</string>
+    <string name="btnReset">Reset</string>
 </resources>

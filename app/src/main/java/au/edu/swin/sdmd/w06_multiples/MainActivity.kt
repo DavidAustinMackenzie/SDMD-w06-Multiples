@@ -14,22 +14,26 @@ class MainActivity : AppCompatActivity() {
         const val RESULT = "result"
     }
 
+    var randNum1 = 0
+    var randNum2 = 0
+    lateinit var txtView1: TextView
+    lateinit var txtView2: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Get inputs
         val btnCalc = findViewById<Button>(R.id.btnCalc)
-        val txtView1 = findViewById<TextView>(R.id.textView1)
-        val txtView2 = findViewById<TextView>(R.id.textView2)
-        //Generate Random numbers and display in textViews
-        var randNum1 = Random.nextInt(from = 1, until = 13)
-        txtView1.text = randNum1.toString()
-        var randNum2  = Random.nextInt(from = 1, until = 13)
-        txtView2.text = randNum2.toString()
+        val btnReset = findViewById<Button>(R.id.btnReset)
+        txtView1 = findViewById(R.id.textView1)
+        txtView2 = findViewById(R.id.textView2)
 
+        //Set Initial Values
+        resetNumbers()
+
+        //Pass values to ResultActivity and start Activity
         btnCalc.setOnClickListener{
-
-
             //var result = randNum1 * randNum2
 
             //Call second activity
@@ -43,5 +47,19 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        //Generate new random numbers
+        btnReset.setOnClickListener{
+            resetNumbers()
+        }
+    }
+
+    //Used to generate random numbers in textView1 and textView2
+    private fun resetNumbers() {
+        //Generate Random numbers and display in textViews
+        randNum1 = Random.nextInt(from = 1, until = 13)
+        txtView1.text = randNum1.toString()
+        randNum2  = Random.nextInt(from = 1, until = 13)
+        txtView2.text = randNum2.toString()
     }
 }
